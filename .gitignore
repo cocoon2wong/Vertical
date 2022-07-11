@@ -19,7 +19,7 @@ sdd_debug.plist
 
 
 # temp files
-# .*
+.*
 .test
 .DS_Store
 __pycache__
