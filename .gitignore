@@ -1,0 +1,48 @@
+# data and logs
+videos
+dataset_npz
+dataset_npz*
+*dataset_npz
+logs
+vislogs
+*logs
+*log*
+dataset_temp*
+sdd_debug.plist
+
+# vscode
+.vscode
+.vscode*
+
+# weight files
+*.npy
+
+
+# temp files
+# .*
+.test
+.DS_Store
+__pycache__
+
+# test results
+weights
+summary
+
+# others
+annotations.txt
+reference.jpg
+
+data/sdd
+dataset_json
+dataset_json*
+samples
+samples*
+test_log.txt
+
+null
+
+*temp
+temp*
+
+playground.ipynb
+modules
