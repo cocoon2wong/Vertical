@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>name</key>
+	<string>deathCircle2</string>
+	<key>dataset_dir</key>
+	<string>./data/sdd/deathCircle/video2</string>
+	<key>order</key>
+	<array>
+		<integer>1</integer>
+		<integer>0</integer>
+	</array>
+	<key>paras</key>
+	<array>
+		<integer>1</integer>
+		<integer>30</integer>
+	</array>
+	<key>scale</key>
+	<integer>2</integer>
+	<key>video_path</key>
+	<string>./videos/sdd_deathCircle_2.mov</string>
+	<key>weights</key>
+	<array>
+		<real>100.0</real>
+		<real>0.0</real>
+		<real>100.0</real>
+		<real>0.0</real>
+	</array>
+</dict>
+</plist>

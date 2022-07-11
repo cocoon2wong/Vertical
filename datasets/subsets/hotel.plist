@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>name</key>
+	<string>hotel</string>
+	<key>dataset_dir</key>
+	<string>./data/eth/hotel</string>
+	<key>order</key>
+	<array>
+		<integer>0</integer>
+		<integer>1</integer>
+	</array>
+	<key>paras</key>
+	<array>
+		<integer>10</integer>
+		<integer>25</integer>
+	</array>
+	<key>scale</key>
+	<integer>1</integer>
+	<key>video_path</key>
+	<string>./videos/hotel.mp4</string>
+	<key>weights</key>
+	<array>
+		<array>
+			<array>
+				<real>-0.0015966</real>
+				<real>0.0116324</real>
+				<real>-5.39514</real>
+			</array>
+			<array>
+				<real>0.0110482</real>
+				<real>0.000669589</real>
+				<real>-3.32953</real>
+			</array>
+			<array>
+				<real>0.000111907</real>
+				<real>1.36174e-05</real>
+				<real>0.542766</real>
+			</array>
+		</array>
+		<real>0.54</real>
+		<integer>470</integer>
+		<real>0.54</real>
+		<integer>300</integer>
+	</array>
+</dict>
+</plist>

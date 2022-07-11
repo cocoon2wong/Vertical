@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>name</key>
+	<string>eth</string>
+	<key>dataset_dir</key>
+	<string>./data/eth/univ</string>
+	<key>order</key>
+	<array>
+		<integer>1</integer>
+		<integer>0</integer>
+	</array>
+	<key>paras</key>
+	<array>
+		<integer>6</integer>
+		<integer>25</integer>
+	</array>
+	<key>scale</key>
+	<integer>1</integer>
+	<key>video_path</key>
+	<string>./videos/eth.mp4</string>
+	<key>weights</key>
+	<array>
+		<array>
+			<array>
+				<real>0.0281287</real>
+				<real>0.00200919</real>
+				<real>-4.66936</real>
+			</array>
+			<array>
+				<real>0.000806257</real>
+				<real>0.0251955</real>
+				<real>-5.06088</real>
+			</array>
+			<array>
+				<real>0.000345554</real>
+				<real>9.25122e-05</real>
+				<real>0.462553</real>
+			</array>
+		</array>
+		<real>0.65</real>
+		<integer>225</integer>
+		<real>0.6</real>
+		<integer>160</integer>
+	</array>
+</dict>
+</plist>
