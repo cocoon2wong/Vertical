@@ -1,0 +1,2 @@
+model_checkpoint_path: "_VF__epoch229.tf"
+all_model_checkpoint_paths: "_VF__epoch229.tf"
