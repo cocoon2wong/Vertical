@@ -2,7 +2,7 @@
  * @Author: Conghao Wong
  * @Date: 2021-08-05 15:51:15
  * @LastEditors: Conghao Wong
- * @LastEditTime: 2022-07-11 21:26:48
+ * @LastEditTime: 2022-07-13 10:26:03
  * @Description: file content
  * @Github: https://github.com/cocoon2wong
  * Copyright 2022 Conghao Wong, All Rights Reserved.
@@ -10,7 +10,6 @@
 
 # Codes for View Vertically: A Hierarchical Network for Trajectory Prediction via Fourier Spectrums
 
-![status](https://img.shields.io/github/workflow/status/cocoon2wong/Project-Jocker/Python%20application/Vertical)
 ![$V^2$-Net](./vmethod.png)
 
 ## Abstract
@@ -166,7 +165,7 @@ for ds in eth hotel univ zara1 zara2
       --T ${T}
 ```
 
-You can also [download](drive.google.com)(⚠️NOT UPLOAD YET) and unzip our weights into the `weights/vertical_minimal` folder, then run the following test scripts:
+You can also [download](drive.google.com) (⚠️NOT UPLOAD YET) and unzip our weights into the `weights/vertical_minimal` folder, then run the following test scripts:
 
 ```bash
 for name in FFTmv mv
@@ -299,14 +298,17 @@ Args with `argtype='static'` means that their values can not be changed once aft
   Depth of the random noise vector (for random generation).
   The default value is `16`.
 - `--feature_dim`, type=`int`, argtype=`'static'`.
-  (It is unused in this model) 
-  The default value is `-1`.
+  Feature dimension used in most layers.
+  The default value is `128`.
 - `--key_points`, type=`str`, argtype=`'static'`.
   A list of key-time-steps to be predicted in the agent model. For example, `'0_6_11'`.
   The default value is `'0_6_11'`.
 - `--points`, type=`int`, argtype=`'static'`.
   Controls number of points (representative time steps) input to the beta model. It only works when training the beta model only.
   The default value is `1`.
+- `--preprocess`, type=`str`, argtype=`'static'`.
+  Controls if running any preprocess before model inference. Accept a 3-bit-like string value (like `'111'`): - the first bit: `MOVE` trajectories to (0, 0); - the second bit: re-`SCALE` trajectories; - the third bit: `ROTATE` trajectories.
+  The default value is `'111'`.
 <!-- DO NOT CHANGE THIS LINE -->
 
 ## Thanks

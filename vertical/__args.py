@@ -2,7 +2,7 @@
 @Author: Conghao Wong
 @Date: 2022-06-23 10:16:04
 @LastEditors: Conghao Wong
-@LastEditTime: 2022-07-06 20:02:10
+@LastEditTime: 2022-07-13 10:23:27
 @Description: file content
 @Github: https://github.com/cocoon2wong
 @Copyright 2022 Conghao Wong, All Rights Reserved.
@@ -41,9 +41,9 @@ class VArgs(BaseArgTable):
     @property
     def feature_dim(self) -> int:
         """
-        (It is unused in this model)
+        Feature dimension used in most layers.
         """
-        return self._get('feature_dim', -1, argtype='static')
+        return self._get('feature_dim', 128, argtype='static')
 
     @property
     def depth(self) -> int:
