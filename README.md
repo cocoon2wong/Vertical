@@ -26,6 +26,7 @@ Experimental results display the competitiveness and superiority of V$^2$-Net on
 
 ## Citation
 
+Our paper is now available at https://arxiv.org/pdf/2110.07288.pdf.  
 If you find this work useful, it would be grateful to cite our paper!
 
 ```bib
