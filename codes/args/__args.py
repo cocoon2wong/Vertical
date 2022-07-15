@@ -137,7 +137,7 @@ class BaseArgTable():
             else:
                 continue
 
-        if not value:
+        if value is None:
             value = default
 
         value = type(default)(value)
