@@ -132,7 +132,7 @@ class BaseArgTable():
         for index in order:
             value = self._get_args_by_index_and_name(index, name)
 
-            if value:
+            if value is not None:
                 break
             else:
                 continue
