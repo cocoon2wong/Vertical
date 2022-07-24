@@ -111,6 +111,12 @@ We have provided our pre-trained model weights to help you quickly evaluate the 
 We have uploaded our model weights in the `weights` folder.
 It contains model weights trained on `ETH-UCY` by the `leave-one-out` stragety, and model weights trained on `SDD` via the dataset split method from [SimAug](https://github.com/JunweiLiang/Multiverse).
 
+Please note that we do not use dataset split files like trajectron++ or trajnet for several problems.
+For example, the frame rate problem in `ETH-eth` sub-dataset, and some of these splits only consider the `pedestrians` in the SDD dataset.
+We process the original full-dataset files from these datasets with observations = 3.2 seconds (or 8 frames) and predictions = 4.8 seconds (or 12 frames) to train and test the model.
+See deatils in [issue#1](https://github.com/cocoon2wong/Vertical/issues/1).
+(Thanks @MeiliMa)
+
 ```null
 REPO_ROOT_DIR
   - weights
