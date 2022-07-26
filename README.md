@@ -2,7 +2,7 @@
  * @Author: Conghao Wong
  * @Date: 2021-08-05 15:51:15
  * @LastEditors: Conghao Wong
- * @LastEditTime: 2022-07-26 11:17:43
+ * @LastEditTime: 2022-07-26 14:49:17
  * @Description: file content
  * @Github: https://github.com/cocoon2wong
  * Copyright 2022 Conghao Wong, All Rights Reserved.
@@ -131,6 +131,8 @@ for dataset in eth hotel univ zara1 zara2 sdd
 After the code running, you will see the output in the `./test.log` file:
 
 ```log
+[2022-07-26 14:47:50,444][INFO] `V`: Results from ./weights/vertical/a_eth, ./logs/weights/vertical/b_eth, eth, {'ADE(m)': 0.23942476, 'FDE(m)': 0.3755888}
+...
 [2022-07-26 10:27:00,028][INFO] `V`: Results from ./weights/vertical/a_hotel, ./weights/vertical/b_hotel, hotel, {'ADE(m)': 0.107846856, 'FDE(m)': 0.1635725}
 ...
 [2022-07-25 20:23:31,744][INFO] `V`: Results from ./weights/vertical/a_univ, ./weights/vertical/b_univ, univ, {'ADE(m)': 0.20977141, 'FDE(m)': 0.35295317}
@@ -139,6 +141,7 @@ After the code running, you will see the output in the `./test.log` file:
 ...
 [2022-07-26 10:10:52,098][INFO] `V`: Results from ./weights/vertical/a_zara2, ./weights/vertical/b_zara2, zara2, {'ADE(m)': 0.1495939, 'FDE(m)': 0.24811372}
 ...
+[2022-07-26 14:44:44,637][INFO] `V`: Results from ./weights/vertical/a_sdd, ./logs/weights/vertical/b_sdd, sdd, {'ADE(m)': 0.068208106, 'FDE(m)': 0.10638584}
 ```
 
 Please note that the results may fluctuate slightly at each model implementation due to the random sampling in the model (which is used to generate multiple stochastic predictions).
@@ -156,7 +159,8 @@ for dataset in eth hotel univ zara1 zara2 sdd
 ```
 
 The `--loadb l` will replace the original stage-2 spectrum interpolation sub-network with the simple linear interpolation method.
-Although it may reduce the prediction performance, the model will implement much faster. You can see the model output in `./test.log` like:
+Although it may reduce the prediction performance, the model will implement much faster.
+You can see the model output in `./test.log` like:
 
 ```log
 [2022-07-26 10:17:57,955][INFO] `V`: Results from ./weights/vertical/a_eth, l, eth, {'ADE(m)': 0.2517119, 'FDE(m)': 0.37815523}
