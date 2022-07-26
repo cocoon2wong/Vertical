@@ -2,7 +2,7 @@
 @Author: Conghao Wong
 @Date: 2022-06-22 09:35:52
 @LastEditors: Conghao Wong
-@LastEditTime: 2022-06-23 14:32:06
+@LastEditTime: 2022-07-26 10:42:33
 @Description: file content
 @Github: https://github.com/cocoon2wong
 @Copyright 2022 Conghao Wong, All Rights Reserved.
@@ -30,7 +30,7 @@ class BaseHandlerModel(C.basemodels.Model):
 
         # Preprocess
         self.set_preprocess('move')
-        self.set_preprocess_parameters(move=0)
+        self.set_preprocess_parameters(move=-1)
 
         # Parameters
         self.asHandler = asHandler
