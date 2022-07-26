@@ -2,7 +2,7 @@
  * @Author: Conghao Wong
  * @Date: 2021-08-05 15:51:15
  * @LastEditors: Conghao Wong
- * @LastEditTime: 2022-07-26 15:00:41
+ * @LastEditTime: 2022-07-26 15:28:31
  * @Description: file content
  * @Github: https://github.com/cocoon2wong
  * Copyright 2022 Conghao Wong, All Rights Reserved.
@@ -116,7 +116,7 @@ For example, the frame rate problem in `ETH-eth` sub-dataset, and some of these 
 We process the original full-dataset files from these datasets with observations = 3.2 seconds (or 8 frames) and predictions = 4.8 seconds (or 12 frames) to train and test the model.
 Detailed process codes are available in `./scripts/add_ethucy_datasets.py`, `./scripts/add_sdd.py`, and `./scripts/sdd_txt2csv.py`.
 See deatils in [issue#1](https://github.com/cocoon2wong/Vertical/issues/1).
-(Thanks @MeiliMa)
+(Thanks [@MeiliMa](https://github.com/MeiliMa))
 
 You can start the quick evaluation via the following commands:
 
@@ -347,8 +347,8 @@ Args with `argtype='static'` means that their values can not be changed once aft
 ## Thanks
 
 Codes of the Transformers used in this model comes from [TensorFlow.org](https://www.tensorflow.org/tutorials/text/transformer);  
-Dataset files of ETH-UCY come from [SR-LSTM (CVPR2019)](https://github.com/zhangpur/SR-LSTM);  
-Dataset split file of SDD comes from [SimAug (ECCV2020)](https://github.com/JunweiLiang/Multiverse);  
+Dataset csv files of ETH-UCY come from [SR-LSTM (CVPR2019) / E-SR-LSTM (TPAMI2020)](https://github.com/zhangpur/SR-LSTM);  
+Original dataset annotation files of SDD come from [Stanford Drone Dataset](https://cvgl.stanford.edu/projects/uav_data/), and its split file comes from [SimAug (ECCV2020)](https://github.com/JunweiLiang/Multiverse);  
 [@MeiliMa](https://github.com/MeiliMa) for dataset suggestions.
 
 ## Contact us
