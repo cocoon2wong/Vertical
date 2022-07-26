@@ -2,7 +2,7 @@
  * @Author: Conghao Wong
  * @Date: 2021-08-05 15:51:15
  * @LastEditors: Conghao Wong
- * @LastEditTime: 2022-07-13 10:26:03
+ * @LastEditTime: 2022-07-26 15:28:31
  * @Description: file content
  * @Github: https://github.com/cocoon2wong
  * Copyright 2022 Conghao Wong, All Rights Reserved.
@@ -111,24 +111,12 @@ We have provided our pre-trained model weights to help you quickly evaluate the 
 We have uploaded our model weights in the `weights` folder.
 It contains model weights trained on `ETH-UCY` by the `leave-one-out` stragety, and model weights trained on `SDD` via the dataset split method from [SimAug](https://github.com/JunweiLiang/Multiverse).
 
-Please note that we do not use dataset split files like trajectron++ or trajnet for several problems.
+Please note that we do not use dataset split files like trajectron++ or trajnet for several reasons.
 For example, the frame rate problem in `ETH-eth` sub-dataset, and some of these splits only consider the `pedestrians` in the SDD dataset.
 We process the original full-dataset files from these datasets with observations = 3.2 seconds (or 8 frames) and predictions = 4.8 seconds (or 12 frames) to train and test the model.
+Detailed process codes are available in `./scripts/add_ethucy_datasets.py`, `./scripts/add_sdd.py`, and `./scripts/sdd_txt2csv.py`.
 See deatils in [issue#1](https://github.com/cocoon2wong/Vertical/issues/1).
-(Thanks @MeiliMa)
-
-```null
-REPO_ROOT_DIR
-  - weights
-    - vertical
-      - a_eth
-      - a_hotel
-      - a_sdd
-      - a_univ
-      - a_zara1
-      - a_zara2
-      - b_universal
-```
+(Thanks [@MeiliMa](https://github.com/MeiliMa))
 
 You can start the quick evaluation via the following commands:
 
@@ -137,8 +125,28 @@ for dataset in eth hotel univ zara1 zara2 sdd
   python main.py \
     --model V \
     --loada ./weights/vertical/a_${dataset} \
-    --loadb ./weights/vertical/b_universal
+    --loadb ./weights/vertical/b_${dataset}
 ```
+
+After the code running, you will see the output in the `./test.log` file:
+
+```log
+[2022-07-26 14:47:50,444][INFO] `V`: Results from ./weights/vertical/a_eth, ./weights/vertical/b_eth, eth, {'ADE(m)': 0.23942476, 'FDE(m)': 0.3755888}
+...
+[2022-07-26 10:27:00,028][INFO] `V`: Results from ./weights/vertical/a_hotel, ./weights/vertical/b_hotel, hotel, {'ADE(m)': 0.107846856, 'FDE(m)': 0.1635725}
+...
+[2022-07-25 20:23:31,744][INFO] `V`: Results from ./weights/vertical/a_univ, ./weights/vertical/b_univ, univ, {'ADE(m)': 0.20977141, 'FDE(m)': 0.35295317}
+...
+[2022-07-26 10:07:42,727][INFO] `V`: Results from ./weights/vertical/a_zara1, ./weights/vertical/b_zara1, zara1, {'ADE(m)': 0.19370425, 'FDE(m)': 0.3097202}
+...
+[2022-07-26 10:10:52,098][INFO] `V`: Results from ./weights/vertical/a_zara2, ./weights/vertical/b_zara2, zara2, {'ADE(m)': 0.1495939, 'FDE(m)': 0.24811372}
+...
+[2022-07-26 14:44:44,637][INFO] `V`: Results from ./weights/vertical/a_sdd, ./weights/vertical/b_sdd, sdd, {'ADE(m)': 0.068208106, 'FDE(m)': 0.10638584}
+```
+
+Please note that the results may fluctuate slightly at each model implementation due to the random sampling in the model (which is used to generate multiple stochastic predictions).
+In addition, we shrunk all SDD data by a scale factor of 100 when training the model.
+The data recorded in the `./test.log` multiplied by 100 is the result we report in the paper.
 
 You can also start testing the fast version of `V^2-Net` by passing the argument `--loadb l` like:
 
@@ -150,7 +158,25 @@ for dataset in eth hotel univ zara1 zara2 sdd
     --loadb l
 ```
 
-We have prepared model outputs that work correctly on the zara1 dataset, details of which can be found in https://github.com/cocoon2wong/Vertical/actions.
+The `--loadb l` will replace the original stage-2 spectrum interpolation sub-network with the simple linear interpolation method.
+Although it may reduce the prediction performance, the model will implement much faster.
+You can see the model output in `./test.log` like:
+
+```log
+[2022-07-26 10:17:57,955][INFO] `V`: Results from ./weights/vertical/a_eth, l, eth, {'ADE(m)': 0.2517119, 'FDE(m)': 0.37815523}
+...
+[2022-07-26 10:18:05,915][INFO] `V`: Results from ./weights/vertical/a_hotel, l, hotel, {'ADE(m)': 0.112576276, 'FDE(m)': 0.16336456}
+...
+[2022-07-26 10:18:42,540][INFO] `V`: Results from ./weights/vertical/a_univ, l, univ, {'ADE(m)': 0.21333231, 'FDE(m)': 0.35480896}
+...
+[2022-07-26 10:23:39,660][INFO] `V`: Results from ./weights/vertical/a_zara1, l, zara1, {'ADE(m)': 0.21019873, 'FDE(m)': 0.31065288}
+...
+[2022-07-26 10:23:57,347][INFO] `V`: Results from ./weights/vertical/a_zara2, l, zara2, {'ADE(m)': 0.1556495, 'FDE(m)': 0.25072886}
+...
+[2022-07-26 10:45:53,313][INFO] `V`: Results from ./weights/vertical/a_sdd, l, sdd, {'ADE(m)': 0.06888708, 'FDE(m)': 0.106946796}
+```
+
+We have prepared model outputs that work correctly on the zara1 dataset, details of which can be found [here](https://github.com/cocoon2wong/Vertical/actions).
 
 If you have the dataset videos and put them into the `videos` folder, you can draw the visualized results by adding the `--draw_reuslts 1` argument.
 If you want to draw visualized trajectories like what our paper shows, you can add the additional `--draw_distribution 2` argument:
@@ -320,11 +346,12 @@ Args with `argtype='static'` means that their values can not be changed once aft
 
 ## Thanks
 
-Codes of the Transformers used in this model comes from [TensorFlow.org](https://www.tensorflow.org/tutorials/text/transformer).  
-Dataset files of ETH-UCY come from [SR-LSTM (CVPR2019)](https://github.com/zhangpur/SR-LSTM).  
-Dataset split file of SDD comes from [SimAug (ECCV2020)](https://github.com/JunweiLiang/Multiverse).
+Codes of the Transformers used in this model comes from [TensorFlow.org](https://www.tensorflow.org/tutorials/text/transformer);  
+Dataset csv files of ETH-UCY come from [SR-LSTM (CVPR2019) / E-SR-LSTM (TPAMI2020)](https://github.com/zhangpur/SR-LSTM);  
+Original dataset annotation files of SDD come from [Stanford Drone Dataset](https://cvgl.stanford.edu/projects/uav_data/), and its split file comes from [SimAug (ECCV2020)](https://github.com/JunweiLiang/Multiverse);  
+[@MeiliMa](https://github.com/MeiliMa) for dataset suggestions.
 
 ## Contact us
 
-Conghao Wong (@cocoon2wong): conghao_wong@icloud.com  
-Beihao Xia (@NorthOcean): xbh_hust@hust.edu.cn
+Conghao Wong ([@cocoon2wong](https://github.com/cocoon2wong)): conghao_wong@icloud.com  
+Beihao Xia ([@NorthOcean](https://github.com/NorthOcean)): xbh_hust@hust.edu.cn
