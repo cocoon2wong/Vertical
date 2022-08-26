@@ -2,7 +2,7 @@
  * @Author: Conghao Wong
  * @Date: 2021-08-05 15:51:15
  * @LastEditors: Conghao Wong
- * @LastEditTime: 2022-07-26 15:28:31
+ * @LastEditTime: 2022-08-26 20:13:20
  * @Description: file content
  * @Github: https://github.com/cocoon2wong
  * Copyright 2022 Conghao Wong, All Rights Reserved.
@@ -179,7 +179,20 @@ You can see the model output in `./test.log` like:
 We have prepared model outputs that work correctly on the zara1 dataset, details of which can be found [here](https://github.com/cocoon2wong/Vertical/actions).
 
 If you have the dataset videos and put them into the `videos` folder, you can draw the visualized results by adding the `--draw_reuslts 1` argument.
-If you want to draw visualized trajectories like what our paper shows, you can add the additional `--draw_distribution 2` argument:
+Plsase specify the video clip that you want to draw trajectories on (for example `SOME_VIDEO_CLIP`) by adding arguments `--test_mode one` and `--force_set SOME_VIDEO_CLIP`.
+If you want to draw visualized trajectories like what our paper shows, you can add the additional `--draw_distribution 2` argument.
+For example, you can download videos from datasets' official websets, and draw results on the `SDD-hyang2` video via the following command:
+
+```bash
+python main.py \
+  --model V \
+  --loada ./weights/vertical/a_sdd \
+  --loadb ./weights/vertical/b_sdd \
+  --draw_results 1 \
+  --draw_distribution 2 \
+  --test_mode one \
+  --force_set hyang2
+```
 
 ![Visualization](./fig_vis.png)
 
