@@ -30,11 +30,13 @@ Our paper is now available at https://arxiv.org/pdf/2110.07288.pdf.
 If you find this work useful, it would be grateful to cite our paper!
 
 ```bib
-@article{wong2021view,
+@inproceedings{wong2022view,
   title={View Vertically: A hierarchical network for trajectory prediction via fourier spectrums},
   author={Wong, Conghao and Xia, Beihao and Hong, Ziming and Peng, Qinmu and Yuan, Wei and Cao, Qiong and Yang, Yibo and You, Xinge},
-  journal={arXiv preprint arXiv:2110.07288},
-  year={2021}
+  booktitle={European Conference on Computer Vision},
+  pages={682--700},
+  year={2022},
+  organization={Springer}
 }
 ```
 
