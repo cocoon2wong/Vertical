@@ -10,18 +10,20 @@ gh-badge: [star, fork]
  * @Author: Conghao Wong
  * @Date: 2023-02-27 10:22:12
  * @LastEditors: Conghao Wong
- * @LastEditTime: 2023-04-13 16:51:42
+ * @LastEditTime: 2023-04-13 18:07:27
  * @Description: file content
  * @Github: https://cocoon2wong.github.io
  * Copyright 2023 Conghao Wong, All Rights Reserved.
 -->
 
+<link rel="stylesheet" type="text/css" href="../assets/css/user.css">
+
 ## Get Started
 
 <div style="text-align: center;">
-    <a class="btn btn-info btn-lg" href="https://arxiv.org/abs/2110.07288">📖 Paper</a>
-    <a class="btn btn-info btn-lg" href="https://github.com/cocoon2wong/Vertical">🛠️ Codes</a>
-    <a class="btn btn-info btn-lg" href="/Vertical/index">💡 Homepage</a>
+    <a class="btn btn-colorful btn-lg" href="https://arxiv.org/abs/2110.07288">📖 Paper</a>
+    <a class="btn btn-colorful btn-lg" href="https://github.com/cocoon2wong/Vertical">🛠️ Codes</a>
+    <a class="btn btn-colorful btn-lg" href="../index">💡 Homepage</a>
 </div>
 
 You can clone [this repository](https://github.com/cocoon2wong/Vertical) by the following command:
@@ -198,7 +200,7 @@ python main.py \
 ```
 
 <div style="text-align: center;">
-    <img style="width: 90%;" src="/Vertical/assets/img/fig_vis.png">
+    <img style="width: 100%;" src="../assets/img/fig_vis.png">
 </div>
 
 ## Evaluation of the Usage of Spectrums

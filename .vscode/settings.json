@@ -3,25 +3,21 @@
         "**/_data": true,
         "**/_includes": true,
         "**/_layouts": true,
-
+        "**/_site": true,
         "**/.github": true,
-
         "**/assets/css": true,
         "**/assets/js": true,
-
         "**/docs": true,
-
         "**/.gitattributes": true,
         "**/.gitignore": true,
         "**/Gemfile": true,
+        "**/Gemfile*": true,
         "**/*.gemspec": true,
 
         "**/feed.xml": true,
         "**/staticman.yml": true,
-
         "**/tags.html": true,
         "**/404.html": true,
-
     },
     "grammarly.files.include": [
         "**/readme.md",

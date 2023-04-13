@@ -10,13 +10,13 @@ comments: true
  * @Author: Conghao Wong
  * @Date: 2023-03-21 17:52:21
  * @LastEditors: Conghao Wong
- * @LastEditTime: 2023-04-13 16:44:49
+ * @LastEditTime: 2023-04-13 18:08:00
  * @Description: file content
  * @Github: https://cocoon2wong.github.io
  * Copyright 2023 Conghao Wong, All Rights Reserved.
 -->
 
-<link rel="stylesheet" type="text/css" href="/assets/css/user.css">
+<link rel="stylesheet" type="text/css" href="./assets/css/user.css">
 
 ## Information
 
@@ -25,15 +25,15 @@ The paper is publicly available on arXiv.
 Click the buttons below for more information.
 
 <div style="text-align: center;">
-    <a class="btn btn-info btn-lg get-started-btn" href="https://arxiv.org/abs/2110.07288">📖 Paper</a>
-    <a class="btn btn-info btn-lg" href="https://github.com/cocoon2wong/Vertical">🛠️ Codes</a>
-    <a class="btn btn-info btn-lg" href="/Vertical/howToUse">💡 Codes Guidelines</a>
+    <a class="btn btn-colorful btn-lg get-started-btn" href="https://arxiv.org/abs/2110.07288">📖 Paper</a>
+    <a class="btn btn-colorful btn-lg" href="https://github.com/cocoon2wong/Vertical">🛠️ Codes</a>
+    <a class="btn btn-colorful btn-lg" href="./howToUse">💡 Codes Guidelines</a>
 </div>
 
 ## Abstract
 
 <div style="text-align: center;">
-    <img style="width: 90%;" src="/Vertical/assets/img/vmethod.png">
+    <img style="width: 100%;" src="./assets/img/vmethod.png">
 </div>
 
 Understanding and forecasting future trajectories of agents are critical for behavior analysis, robot navigation, autonomous cars, and other related applications.
