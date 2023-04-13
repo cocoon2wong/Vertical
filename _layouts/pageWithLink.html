@@ -1,0 +1,77 @@
+---
+common-css:
+  - "/assets/css/bootstrap-social.css"
+  - "/assets/css/beautifuljekyll.css"
+  - "/assets/css/pageWithLink.css"
+common-ext-css:
+  - href: "https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    sri: "sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+  - "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
+  - "https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic"
+  - "https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800"
+common-ext-js:
+  - href: "https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    sri: "sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs="
+  - href: "https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    sri: "sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+  - href: "https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+    sri: "sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+common-js:
+  - "/assets/js/beautifuljekyll.js"
+---
+
+<!DOCTYPE html>
+<html lang="{{ page.language | default: site.language | default: 'en' }}">
+<!-- Beautiful Jekyll 5.0.0 | Copyright Dean Attali 2020 -->
+{% include headWithLink.html %}
+
+<body>
+
+  {% include gtm_body.html %}
+
+  {% include nav.html %}
+
+  {% include header.html type="page" %}
+
+<div class="{% if page.full-width %} container-fluid {% else %} container-md {% endif %}" role="main">
+  <div class="row">
+    <div class="col-xl-3 col-lg-4" style="border-right-style: solid; border-right-color: #e5e5e5; border-right-width: 0.5mm;" >
+      <div id="TABLE_OF_CONTENTS" style="position:sticky; top: 100px; ">
+      </div>
+    </div>
+    <div class="{% if page.full-width %} col {% else %} col-xl-8 offset-xl-0 col-lg-10 offset-lg-1 {% endif %}">
+      {% if page.before-content %}
+        <div class="before-content">
+          {% for file in page.before-content %}
+            {% include {{ file }} %}
+          {% endfor %}
+        </div>
+      {% endif %}
+      
+
+
+        {{ content }}
+
+
+
+      {% if page.after-content %}
+        <div class="after-content">
+          {% for file in page.after-content %}
+            {% include {{ file }} %}
+          {% endfor %}
+        </div>
+      {% endif %}
+
+      {% include comments.html %}
+    </div>
+  </div>
+</div>
+
+
+  {% include footerWithLink.html %}
+
+  {% include footer-scripts.html %}
+
+</body>
+</html>
+

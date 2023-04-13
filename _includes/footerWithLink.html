@@ -1,0 +1,95 @@
+<!--
+ * @Author: Conghao Wong
+ * @Date: 2023-04-11 19:57:48
+ * @LastEditors: Conghao Wong
+ * @LastEditTime: 2023-04-13 13:11:27
+ * @Description: file content
+ * @Github: https://cocoon2wong.github.io
+ * Copyright 2023 Conghao Wong, All Rights Reserved.
+-->
+<footer>
+    <script>
+        const table_of_contents = document.getElementById('TABLE_OF_CONTENTS');
+
+        $(function () {
+            return $("h2, h3, h4, h5, h6").each(function (i, el) {
+                var $el, icon, id;
+                $el = $(el);
+                id = $el.attr('id');
+                icon = '<i class="fa fa-link"></i>';
+
+                if (id) {
+
+                    new_string =
+                        "<li style='padding-left: " +
+                        (Number(el.nodeName.substring(1, 2)) * 22 - 22) + "px;'>" +
+                        "<a href='#" + id + "'>" + el.innerHTML + "</a>" + "</li>"
+
+                    if (table_of_contents) {
+                        table_of_contents.innerHTML += new_string
+                    }
+
+                    console.log(new_string)
+
+                    return $el.prepend($("<a />").addClass("header-link").attr("href", "#" + id).html(icon));
+                }
+            });
+        });
+
+        if (table_of_contents) {
+            table_of_contents.innerHTML += "<h2>Contents</h2>"
+        }
+
+    </script>
+
+    <div class="container-md beautiful-jekyll-footer">
+        <div class="row">
+            <div class="col-xl-8 offset-xl-2 col-lg-10 offset-lg-1">
+                {% include social-networks-links.html %}
+                {% if page.footer-extra %}
+                <div class="footer-custom-content">
+                    {% for file in page.footer-extra %}
+                    {% include {{ file }} %}
+                    {% endfor %}
+                </div>
+                {% endif %}
+                <p class="copyright text-muted">
+                    {% if site.author %}
+                    {{ site.author }}
+                    &nbsp;&bull;&nbsp;
+                    {% endif %}
+                    {{ site.time | date: '%Y' }}
+
+                    {% if site.url-pretty %}
+                    &nbsp;&bull;&nbsp;
+                    <span class="author-site">
+                        <a
+                            href="{% if site.url-canonical %}{{ site.url-canonical }}{% else %}{{ '' | absolute_url }}{% endif %}">{{
+                            site.url-pretty }}</a>
+                    </span>
+                    {% endif %}
+
+                    {% if site.matomo %}
+                    {% if site.matomo.opt-out %}
+                    &nbsp;&bull;&nbsp;
+                    <a href="http://{{- site.matomo.uri -}}/index.php?module=CoreAdminHome&action=optOut"
+                        target="_blank" class="text_muted">Do-not-Track</a>
+                    {% endif %}
+                    {% endif%}
+
+                    {% if site.edit_page_button and site.github.repository_url %}
+                    &nbsp;&bull;&nbsp;
+                    <a title="Edit this page on GitHub"
+                        href="{{ site.github.repository_url }}/edit/{{ site.github.source.branch }}/{{ page.path }}"
+                        class="text_muted">Edit page</a>
+                    {% endif%}
+
+                </p>
+                {% unless site.remove-ads %}<p class="theme-by text-muted">
+                    Powered by
+                    <a href="https://beautifuljekyll.com">Beautiful Jekyll</a>
+                </p>{% endunless %}
+            </div>
+        </div>
+    </div>
+</footer>

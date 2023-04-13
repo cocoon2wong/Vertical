@@ -1,0 +1,27 @@
+/*
+ * @Author: Conghao Wong
+ * @Date: 2023-04-11 19:57:48
+ * @LastEditors: Conghao Wong
+ * @LastEditTime: 2023-04-13 13:46:20
+ * @Description: file content
+ * @Github: https://cocoon2wong.github.io
+ * Copyright 2023 Conghao Wong, All Rights Reserved.
+ */
+
+.header-link {
+    position: absolute;
+    right: 0.5em;
+    opacity: 0;
+
+    \-webkit-transition: opacity 0.2s ease-in-out 0.1s;
+    \-moz-transition: opacity 0.2s ease-in-out 0.1s;
+    \-ms-transition: opacity 0.2s ease-in-out 0.1s;
+}
+
+h2:hover .header-link,
+h3:hover .header-link,
+h4:hover .header-link,
+h5:hover .header-link,
+h6:hover .header-link {
+    opacity: 1;
+}
